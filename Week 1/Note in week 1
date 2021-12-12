@@ -1,0 +1,11 @@
+# This note is used to record the work in week 1 plan.
+# The goal of week 1 is as follows:
+-------WEEK ONE PLAN------------
+1.Connect the server of Lab and set the anaconda, pytorch enviorment on the server. 
+2.Learning pytorch with the tutorial on the official website.
+  2.1 Classifier with dataset FashionMNIST (MLP)
+  2.2 Classifier with dataset FashionMNIST (CNN)
+--------------------------------
+
+#This directory has two code files writting in python with pytorch
+#MLP.py complement the plan 2.1 while CNN.py complete plan 2.2
