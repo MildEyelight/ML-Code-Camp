@@ -1,12 +1,20 @@
-This file use to recode the process complementing the Tutorial of DGL with the node classification mission.
+This file is used to recode the process complementing the Tutorial of DGL with the node classification mission.
 Tutorial website: (https://docs.dgl.ai/tutorials/blitz/index.html)
-1. DGL model
+1. DGL 
 DGL model is a python package used for analysis the graph data and construct the GNN structure.
 I acquired the basic knowlegde of graph and machine learning on graph through the course CS224w of Stanford.
 
 1.1 Graph stored in DGL
-DGL uses the container(torch.Tensor) to store graph data of 
+DGL uses the container(torch.Tensor) to store graph data of the information containing{node,edge,label of node,
+label of edge,mask of training node,mask of test node,etc.}
+
+1.2 dgl.nn.GraphConv()
+Graph Convoluntional Layer in DGL.
 
 2.GNN/GCN model
-GCN is a main variant of GNN and is used for basic structure of neural network in this mission of node classification.
-DGL package use 
+GCN is a main variant of GNN and is used as basic structure of neural network in this mission of node classification.
+In tutorial, the common structure of GNN is adopted by author to help us understand GNN and by more to build our own
+specific GNNs.
+
+3.Node classification(/Week2/GCN for Node Classification.py)
+According to the tutorial of DGL, we are going to implement a semi-supervised node classification mission.
