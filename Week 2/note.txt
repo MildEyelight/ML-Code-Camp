@@ -18,3 +18,23 @@ specific GNNs.
 
 3.Node classification(/Week2/GCN for Node Classification.py)
 According to the tutorial of DGL, we are going to implement a semi-supervised node classification mission.
+
+4.Refine process for node classification in DGL example code 
+    Before         After              Result
+(1) ReLU()    -->  sigmoid()          0.77-->0.69
+(2) 2 Layer   -->  1 Layer            0.77-->0.67
+(3) 2 Layer   -->  3 Layer            0.77-->0.75
+(4) refine num_features               almost invariant
+(5) noselfloop-->  selfloop           0.77-->0.79
+
+Self loop is a very important process in GCN message passing progress to contain self-node-message in next layer
+At first i think the function GraphConv() will contain the process A = A + I but actually not, so i added Self-loop
+and the result increase 2 points.
+
+Hyperparameters of (5): Acc = 0.792
+hidden_feature = 16
+Layer = 2
+with Self-loop
+
+In refine(1)-(4), the loss decrease to 0.001 after 100 epoches, the mode may have some over-fitting tendency,and with
+the studying parameters increasing, the over-fitting tendency goes stronger and thus causing the result worse.
