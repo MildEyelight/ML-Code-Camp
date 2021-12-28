@@ -1,0 +1,35 @@
+Week 3 aims to learn a method training a large-scale graph dataset on OGB(open graph benchmark) called Stochastic Training.
+As well as use the interface of OGB to do node-classification on OGB dataset.
+
+1.Stochastic Training (https://docs.dgl.ai/guide/minibatch.html)
+  Neighborhood Sampling Approaches: Sampling a small batch of node to calculate in a epoch, and to find its neibor backforward along the network layer.
+This process continues until we reach the input, and build a subgraph of this small batch of node.
+  DGL provides us with some interface of samplling the node and stochasticly train the network.
+
+2.OGB(open graph benchmark) dataset
+  OGB provides some large-scale graph dataset and in this weeks project we choose ogbn-arxiv, a citation graph derived from arxiv.
+We are going to inplement a node classification mission on this network.
+
+3.Interface of dgl and ogb
+(1)import dgl
+  dgl provides interface of dataloader of sampling.
+(2)import ogb
+  ogb provoid the dataset of arxiv which has almost 170,000 nodes with labels.
+the node a parted into 3 sets: train, validation and test.
+
+4.Note of coding and result analysis
+  Like the cora on GCN in week 2, I modified the GCN model to stochastic model and add the layer of dropout.
+The week2 complement the base models and test on a small graph to get an accuracy of 0.77.
+In this week's mission i do some extra modification trying to get a better result.
+
+(1)Basic model
+The basic model is mainly copied from the tutorial of stochastic training on dgl website.
+The graph has changed into an undirected graph without selfloop. And i set epoch to 300 times and get 0.67 accuracy on test.
+But the loss is still near 1.0 while on week2 the loss tends to 0. 
+I wonder is it because the stochastic traning makes the training loss so high or juse because the epoch isn't enough.
+
+(2)Graph with selfloop
+The GCN formula tells us A' = A + I which means the selfloop helps improve the result during message passing.
+Actually the selfloop makes the result of model approach the result of GCN on open graphbenmark with the accuracy of 0.71.
+
+
