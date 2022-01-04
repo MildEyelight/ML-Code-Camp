@@ -42,12 +42,13 @@ class StochasticTwoLayerGCN(torch.nn.Module):
 ##这个模型突破了邻域采样的限制
 ##任务就是希望突破邻域限制进行采样，在全图上进行随机采样。即使中心节点与采样出的节点之间没有连边
 ##这样的采样方法也可以将原来的图看作是完全图，以使得GNN能够聚合到不是邻居的节点
+##这个全图随机采样的思路是选择一个中心节点和随机从整张图中选择的“邻居节点”进行聚合操作
 class MultiLayerRandomSampler(dgl.dataloading.BlockSampler):
     def __init__(self, fanouts):
         super().__init__(len(fanouts))
         self.fanouts = fanouts
 
-    def sample_frontier(self, block_idx, g, seed_nodes, *args, **kwargs):
+    def sample_frontier(self, block_idx, g, seed_nodes):
         fanout = self.fanouts[block_idx]
         if fanout is None:
             frontier = dgl.in_subgraph(g, seed_nodes)
