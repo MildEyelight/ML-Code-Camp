@@ -1,1 +1,18 @@
 note for week 4 mission
+Mission:
+Rewrite the stochastic sampling with GNN using instead neiborhood sampling but full map sampling
+full map sampling gives a more flexible way to aggregate the information through the whole graph but
+in experiment(see the python file) shows a bad result. I think just use this single technique but gives
+up the homogenous of GNN is not a very good way to take.
+
+self-check
+(1)Difference among block,frontier and graph
+graph means the initial dataset and we derive frontier by passing some node and all the edges between them to get a subgraph,
+and then generate a block by this frontier.
+
+(2)The first parameter of conv and the first fanout is used for which rank of the neibors?
+The first parameter means the highest rank of the center node and the same as the first fanout.
+
+(3)original NID of a sampling node.
+call the function : src_nodes=block.srcdata[dgl.NID]
+
