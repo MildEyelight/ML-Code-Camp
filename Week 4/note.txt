@@ -1,6 +1,6 @@
 note for week 4 mission
 Mission:
-Rewrite the stochastic sampling with GNN using instead neiborhood sampling but full map sampling
+Rewrite the stochastic sampling with GNN using instead of neiborhood sampling but full map sampling
 full map sampling gives a more flexible way to aggregate the information through the whole graph but
 in experiment(see the python file) shows a bad result. I think just use this single technique but gives
 up the homogenous of GNN is not a very good way to take.
